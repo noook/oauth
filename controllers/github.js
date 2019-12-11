@@ -14,14 +14,17 @@ app.get('/identity', async (req, res, next) => {
   const { CLIENT_ID, STATE, REDIRECT_URI} = process.env;
   const url = 'https://github.com/login/oauth/authorize';
   const params = `client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&state=${STATE}&allow_signup=false`;
-  console.log(`${url}?${params}`)
   res.redirect(`${url}?${params}`);
 });
 
 app.get('/callback', async (req, res, next) => {
   const { code, state } = req.query;
-  console.log({ code, state });
-  res.send({})
+  github.auth(code)
+    .then(({ data }) => {
+      const { access_token, token_type, scope } = data;
+      res.send({ access_token, token_type, scope });
+    })
+    .catch(() => res.status(400).send({}));
 });
 
 module.exports = app;
