@@ -1,29 +1,30 @@
 {
-   "name": "project-name",
-   "version": "1.0.0",
-   "description": "Project description",
-   "dependencies": {
-      "@types/dotenv": "^6.1.1",
-      "@types/node": "^12.7.3",
-      "dotenv": "^8.0.0",
-      "module-alias": "^2.2.0",
-      "reflect-metadata": "^0.1.10",
-      "typescript": "^3.7.2"
-   },
-   "devDependencies": {
-      "nodemon": "^1.19.1",
-      "ts-loader": "^6.0.2",
-      "ts-node": "3.3.0"
-   },
-   "_moduleAliases": {
-      "@": "dist"
-   },
-   "scripts": {
-      "compile": "rm -r dist; tsc && node --inspect=0.0.0.0 dist/index.js",
-      "dev": "nodemon -e ts --exec \"npm run compile\"",
-      "start": "ts-node src/index.ts"
-   },
-   "keywords": [],
-   "author": "Neil Richter <me@neilrichter.com> (https://neilrichter.com/)",
-   "license": "ISC"
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon --inspect=0.0.0.0 .",
+    "knex": "knex",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "cron": "^1.7.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.20.2",
+    "moment": "^2.24.0",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
