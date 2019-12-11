@@ -1,6 +1,6 @@
 import 'module-alias/register';
 import 'dotenv/config';
-import "reflect-metadata";
+import 'reflect-metadata';
 import { shuffle } from '@/utils'; // @ is an alias to src
 
 console.clear();
