@@ -11,10 +11,19 @@ const api = axios.create({
 });
 
 app.get('/identity', async (req, res, next) => {
-  github.identity()
-    .then((data) => {
-      res.set('Content-Type', 'text/html').send(data);
-    });
+  const url = 'https://github.com/login/oauth/authorize';
+  const clientId = '7827991bfb096bc9e001';
+  const redirectUri = 'http://localhost:3003/github/callback';
+  const state = 'plop';
+  const params = `client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}&allow_signup=false`;
+  console.log(`${url}?${params}`)
+  res.redirect(`${url}?${params}`);
+});
+
+app.get('/callback', async (req, res, next) => {
+  const { code, state } = req.query;
+  console.log({ code, state });
+  res.send({})
 });
 
 module.exports = app;
