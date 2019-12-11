@@ -1,6 +1,6 @@
 module.exports = {
   main: {
-    route: '/aqicn',
-    controller: require('./aqicn'),
+    route: '/github',
+    controller: require('./github'),
   },
 };

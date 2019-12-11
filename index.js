@@ -12,8 +12,6 @@ const
 
 console.clear();
 
-// require('./crons');
-
 app.use(cors({
   credentials: true
 }));
@@ -31,3 +29,5 @@ Object.values(controllers).forEach(controller => {
 app.listen(port, () => {
   console.log(chalk.green(`Server started on port ${port}`));
 });
+
+
