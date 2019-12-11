@@ -3,4 +3,8 @@ module.exports = {
     route: '/github',
     controller: require('./github'),
   },
+  session: {
+    route: '',
+    controller: require('./session'),
+  },
 };

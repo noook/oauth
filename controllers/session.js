@@ -10,11 +10,8 @@ const api = axios.create({
 	baseURL,
 });
 
-app.get('/identity', async (req, res, next) => {
-  github.identity()
-    .then((data) => {
-      res.set('Content-Type', 'text/html').send(data);
-    });
+app.post('/session', async (req, res, next) => {
+  console.log(req.body);
 });
 
 module.exports = app;
