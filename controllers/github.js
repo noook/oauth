@@ -11,11 +11,9 @@ const api = axios.create({
 });
 
 app.get('/identity', async (req, res, next) => {
+  const { CLIENT_ID, STATE, REDIRECT_URI} = process.env;
   const url = 'https://github.com/login/oauth/authorize';
-  const clientId = '7827991bfb096bc9e001';
-  const redirectUri = 'http://localhost:3003/github/callback';
-  const state = 'plop';
-  const params = `client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}&allow_signup=false`;
+  const params = `client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&state=${STATE}&allow_signup=false`;
   console.log(`${url}?${params}`)
   res.redirect(`${url}?${params}`);
 });
